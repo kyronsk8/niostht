@@ -16,23 +16,18 @@ struct CityView: View {
     let humidity: String
     let uvIndex: String
     let feelsLike: String
-
+    
     var body: some View {
         VStack(spacing: 16) {
             
-            HStack(spacing: 8) {
-                AsyncImage(url: URL(string: iconURL)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 64, height: 64)
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: 64, height: 64)
-                }
-                
-                Text(weatherCondition) //placeholder
-                    .font(.title2)
+            AsyncImage(url: URL(string: iconURL)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 150, height: 150)
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 150, height: 150)
             }
             
             HStack {
@@ -44,17 +39,14 @@ struct CityView: View {
                 Image(systemName: "location.fill")
             }
             
-            Text(temperature) // Temperature
+            Text(temperature)
                 .font(.system(size: 74))
                 .bold()
-                .background(
-                    Image(systemName: "circle")
-                        .font(.system(size: 10))
-                        .bold()
-                        .offset(x: 64, y: -24)
+                .overlay(Image(systemName: "circle")
+                    .font(.system(size: 10))
+                    .bold()
+                    .offset(x: 55, y: -30)
                 )
-            
-            
             
             HStack {
                 
@@ -82,9 +74,13 @@ struct CityView: View {
                     
                     Text("\(feelsLike)")
                         .bold()
+                        .overlay(Image(systemName: "circle")
+                            .font(.system(size: 6))
+                            .bold()
+                            .offset(x: 14, y: -4)
+                        )
                 }
                 .padding()
-                
             }
             .foregroundStyle(.secondary)
             .padding(.horizontal)

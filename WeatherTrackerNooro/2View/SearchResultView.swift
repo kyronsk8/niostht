@@ -15,7 +15,7 @@ struct SearchResultView: View {
     let iconURL: String
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack() {
             
             VStack(alignment: .center) {
                 
@@ -26,11 +26,9 @@ struct SearchResultView: View {
                 Text(temperature)
                     .font(.system(size: 64))
                     .bold()
-                    .background(
-                        Image(systemName: "circle")
-                            .font(.system(size: 10))
-                            .bold()
-                            .offset(x: 64, y: -24)
+                    .overlay(Image(systemName: "circle")
+                        .font(.system(size: 12))
+                        .offset(x: 50, y: -20)
                     )
             }
             .padding()
@@ -42,22 +40,19 @@ struct SearchResultView: View {
                     image
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 64, height: 64)
+                        .frame(width: 94, height: 94)
                 } placeholder: {
                     ProgressView()
                         .frame(width: 64, height: 64)
                 }
-                
-                Text(weatherCondition) //placeholder
-                    .font(.title2)
             }
+            .padding(.horizontal)
         }
         .padding(.horizontal)
         .background(Color(.label).opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 25))
         .padding()
     }
-
 }
 
 #Preview {
