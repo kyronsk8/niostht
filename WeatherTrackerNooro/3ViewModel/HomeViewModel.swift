@@ -17,7 +17,7 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
-    private let weatherAPIKey = "6efa523ecb2e41d8b5813529251801"
+    private let weatherAPIKey = ""
     private let baseURL = "https://api.weatherapi.com/v1"
     
     private let userDefaultsKey = "PersistedCities"
