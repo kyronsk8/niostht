@@ -5,6 +5,7 @@ Thank you so much for your review and the opportunity! I am open to learning new
 
 Instructions Below:
 
+Insert Api key in "" on the HomeViewModel
 Run on simulator or physical device.
 Type name of city.
 Click search (magnafying glass icon) to search for city.
